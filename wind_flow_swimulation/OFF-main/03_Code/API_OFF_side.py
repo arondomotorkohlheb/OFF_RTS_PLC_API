@@ -19,18 +19,22 @@ def main():
 
     # now I have a list of turbine masks matching the number of turbines of the test case
 
-    # create windfarm object 
-    wind_farm = off.wfm.WindFarm(turbine_list)
 
 
-    # get layout of wind farm from turbine_mask.yaml
-    with open(f'{off.OFF_PATH}\\02_Examples_and_Cases\\00_Inputs\\01_FLORIS\\03_Turbine_model\\turbine_mask.yaml', 'r') as file:
+    # get layout of wind farm from windfarm_information.yaml
+    with open(f'{off.OFF_PATH}\\02_Examples_and_Cases\\03_Cases\\windfarm_information.yaml', 'r') as file:
         turbine_yaml = yaml.safe_load(file)
-    
-    print(turbine_yaml)
 
+    # Update turbine_list with loaded positions
+    for i, turbine in enumerate(turbine_list):
+        turbine.base_location = np.array([turbine_yaml['wind_farm']['farm']['layout_x'][i],
+                                           turbine_yaml['wind_farm']['farm']['layout_y'][i],
+                                           turbine_yaml['wind_farm']['farm']['layout_z'][i]])
+        turbine.orientation = np.array([0, 0])  # Keep orientation fixed for now
+    
     # Re-create wind farm with loaded turbine layout
     wind_farm = off.wfm.WindFarm(turbine_list)
+    print(wind_farm.get_layout())
     pass
 
 
