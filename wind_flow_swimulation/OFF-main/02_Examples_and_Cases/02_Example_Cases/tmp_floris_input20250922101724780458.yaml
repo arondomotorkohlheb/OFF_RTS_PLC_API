@@ -1,0 +1,53 @@
+description: File to initialize the FLORIS simulation with the correct turbine types
+  and settings
+farm:
+  layout_x:
+  - 0.0
+  - 5.0
+  - 10.0
+  - 0.0
+  - 5.0
+  - 10.0
+  - 0.0
+  - 5.0
+  - 10.0
+  layout_y:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 5.0
+  - 5.0
+  - 5.0
+  - 10.0
+  - 10.0
+  - 10.0
+  turbine_type:
+  - iea_10MW
+  - iea_10MW
+  - iea_10MW
+  - iea_10MW
+  - iea_10MW
+  - iea_10MW
+  - iea_10MW
+  - iea_10MW
+  - iea_10MW
+floris_version: v4
+flow_field:
+  air_density: 1.225
+  reference_wind_height: 119.0
+  turbulence_intensities:
+  - 0.06
+  wind_directions:
+  - 225.0
+  wind_shear: 0.12
+  wind_speeds:
+  - 8.0
+  wind_veer: 0.0
+logging:
+  console:
+    enable: true
+    level: WARNING
+  file:
+    enable: false
+    level: WARNING
+name: OFF FLORIS Init Simulation

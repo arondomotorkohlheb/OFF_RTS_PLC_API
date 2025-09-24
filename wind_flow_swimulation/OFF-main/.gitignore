@@ -1,0 +1,25 @@
+### MacOS ###
+.DS_Store
+
+# Default ignored files ###
+/shelf/
+/workspace.xml
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+### C extensions ###
+*.so
+
+### Docs ###
+*.doctree
+*.pickle
+
+### onwards files ###
+.runid
+off_run_*
+*.m
+*.asv
