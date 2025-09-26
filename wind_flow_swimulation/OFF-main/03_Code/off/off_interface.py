@@ -12,7 +12,7 @@
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-
+ 
 # You should have received a copy of the GNU Affero General Public License
 # along with this program (see COPYING file).  If not, see <https://www.gnu.org/licenses/>.
 
@@ -254,9 +254,11 @@ class OFFInterface:
                         'turbine': sim_info["turbine"].get('feed', False),
                         'wake': sim_info["wake"].get('feed', False)}
 
-        settings_ctr = sim_info["controller"]["settings"]
-        settings_ctr['time step'] = sim_info["sim"]["sim"]["time step"]
-        settings_ctr['number of turbines'] = len(sim_info["wind_farm"]["farm"]["layout_x"])
+        # settings_ctr = sim_info["controller"]["settings"]
+        # settings_ctr['time step'] = sim_info["sim"]["sim"]["time step"]
+        # settings_ctr['number of turbines'] = len(sim_info["wind_farm"]["farm"]["layout_x"])
+
+        settings_ctr = None
 
         return settings_sim, settings_sol, settings_wke, settings_cor, settings_ctr
 
@@ -292,17 +294,29 @@ class OFFInterface:
             else:
                 dist_factor = 1
 
-            turbines.append(tur.HAWT_ADM(np.array([sim_info["wind_farm"]["farm"]["layout_x"][idx] * dist_factor,
-                                                   sim_info["wind_farm"]["farm"]["layout_y"][idx] * dist_factor,
-                                                   sim_info["wind_farm"]["farm"]["layout_z"][idx] * dist_factor]),
-                                         np.array(
-                                             [sim_info["ambient"]["flow_field"]["wind_directions"][0],  # orientation
-                                              sim_info["turbine"][t]["shaft_tilt"]]),  # tilt
-                                         tur.TurbineStatesFLORIDyn(sim_info["solver"]["settings"]["n_op"]),
-                                         # Turb. states
-                                         ops.FLORIDynOPs4(sim_info["solver"]["settings"]["n_op"]),  # OP model
-                                         amb.FLORIDynAmbient(sim_info["solver"]["settings"]["n_op"]),  # Ambient model
-                                         sim_info["turbine"][t]))  # Turbine data
+            # turbines.append(tur.HAWT_ADM(np.array([sim_info["wind_farm"]["farm"]["layout_x"][idx] * dist_factor,
+            #                                        sim_info["wind_farm"]["farm"]["layout_y"][idx] * dist_factor,
+            #                                        sim_info["wind_farm"]["farm"]["layout_z"][idx] * dist_factor]),
+            #                              np.array(
+            #                                  [sim_info["ambient"]["flow_field"]["wind_directions"][0],  # orientation
+            #                                   sim_info["turbine"][t]["shaft_tilt"]]),  # tilt
+            #                              tur.TurbineStatesFLORIDyn(sim_info["solver"]["settings"]["n_op"]),
+            #                              # Turb. states
+            #                              ops.FLORIDynOPs4(sim_info["solver"]["settings"]["n_op"]),  # OP model
+            #                              amb.FLORIDynAmbient(sim_info["solver"]["settings"]["n_op"]),  # Ambient model
+            #                              sim_info["turbine"][t]))  # Turbine data
+            turbines.append(tur.TurbineMask(np.array([sim_info["wind_farm"]["farm"]["layout_x"][idx] * dist_factor,
+                                                    sim_info["wind_farm"]["farm"]["layout_y"][idx] * dist_factor,
+                                                    sim_info["wind_farm"]["farm"]["layout_z"][idx] * dist_factor]),
+                                            np.array(
+                                                [sim_info["ambient"]["flow_field"]["wind_directions"][0],  # orientation
+                                                sim_info["turbine"][t]["shaft_tilt"]]),  # tilt
+                                            tur.TurbineStatesFLORIDyn(sim_info["solver"]["settings"]["n_op"]),
+                                            # Turb. states
+                                            ops.FLORIDynOPs4(sim_info["solver"]["settings"]["n_op"]),  # OP model
+                                            amb.FLORIDynAmbient(sim_info["solver"]["settings"]["n_op"]),  # Ambient model
+                                            sim_info["turbine"][t]))  # Turbine data
+
 
         wind_farm = wfm.WindFarm(turbines)
         return wind_farm

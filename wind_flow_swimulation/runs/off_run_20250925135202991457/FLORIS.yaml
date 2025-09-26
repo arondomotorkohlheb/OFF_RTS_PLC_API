@@ -3,33 +3,9 @@ description: File to initialize the FLORIS simulation with the correct turbine t
 farm:
   layout_x:
   - 0.0
-  - 5.0
-  - 10.0
-  - 0.0
-  - 5.0
-  - 10.0
-  - 0.0
-  - 5.0
-  - 10.0
   layout_y:
   - 0.0
-  - 0.0
-  - 0.0
-  - 5.0
-  - 5.0
-  - 5.0
-  - 10.0
-  - 10.0
-  - 10.0
   turbine_type:
-  - iea_10MW
-  - iea_10MW
-  - iea_10MW
-  - iea_10MW
-  - iea_10MW
-  - iea_10MW
-  - iea_10MW
-  - iea_10MW
   - iea_10MW
 floris_version: v4
 flow_field:

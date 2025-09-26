@@ -52,6 +52,7 @@ class WindFarm:
         self.turbines = turbines
         self.dependencies = np.full((self.nT, self.nT), True)
 
+
     def get_sub_windfarm(self, indices):
         """
         Creates a subset of the wind farm with the turbines at the given indices
@@ -91,7 +92,7 @@ class WindFarm:
 
         lg.info('Wind farm layout:')
         lg.info(layout)
-
+        # print("get layout called")
         return layout
 
     def get_current_turbine_states(self) -> np.ndarray:
@@ -110,9 +111,11 @@ class WindFarm:
 
         lg.info('Current wind farm states:')
         lg.info(t_states)
-
+        print(t_states[0, :])
+        print(self.turbines[0].turbine_states.get_state_names())
+        print("get current turbine states called")
         return t_states
-
+ 
     def get_current_turbine_state_from_external(self, turbine_state_list: List[TurbineStates]):
         """
         Collects and returns the current turbine states of the turbines from an external source
@@ -168,6 +171,7 @@ class WindFarm:
         # Update turbine count
         self.nT = self.turbines.__len__()
         lg.info(f'Number of turbines now: {self.nT}')
+        print("get current turbine states called")
 
         return self.nT-1
 
@@ -197,6 +201,7 @@ class WindFarm:
         lg.info('Number of turbines now: %s' % self.nT)
 
         # Remove and return turbine
+        print("remove turbine called")
         return self.turbines.pop(ind)
 
     def get_op_world_coordinates(self) -> np.ndarray:
@@ -212,5 +217,5 @@ class WindFarm:
 
         for turbine in self.turbines:
             collected_coordinates.append(turbine.observation_points.get_world_coord())
-
+        print("get op world coordinates called")
         return np.concatenate(collected_coordinates, axis=0)

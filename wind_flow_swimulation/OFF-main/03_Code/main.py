@@ -45,8 +45,8 @@ def main():
     #   The interface object does not yet know the simulation environment, it only checks requirements
     oi = offi.OFFInterface()
     
-
-
+    # logging.getLogger().setLevel(logging.INFO)
+    logging.getLogger().setLevel(logging.DEBUG)
     
     # Tell the simulation what to run
     #   The run file needs to contain everything, the wake model, the ambient conditions etc.
@@ -59,12 +59,11 @@ def main():
     oi.run_sim()
 
     print("---OFF Simulation took %s seconds ---" % (time.time() - start_time))
-
     # Store output
-    oi.store_measurements()
-    oi.store_applied_control()
-    oi.store_run_file()
-
+    # oi.store_measurements()
+    # oi.store_applied_control()
+    # oi.store_run_file()
+ 
 
 if __name__ == "__main__":
     main()

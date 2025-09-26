@@ -408,7 +408,7 @@ class TurbineMask(Turbine):
     nacellePos = np.array([0, 0, 1])            # in Meter
     turbine_type = "mask"
 
-    def __init__(self, base_location: np.ndarray, orientation: np.ndarray, observation_points: ObservationPoints):
+    def __init__(self, base_location: np.ndarray, orientation: np.ndarray, turbine_states: TurbineStates, observation_points: ObservationPoints, ambient_states: AmbientStates):
         """
         TurbineMask extends the base turbine class such that the values are updated by the packages coming in from the RTS
 
@@ -433,6 +433,7 @@ class TurbineMask(Turbine):
 
     def calc_power(self, wind_speed, air_den):
         return 0
+
 
 class HAWT_ADM(Turbine):
     # Attributes
@@ -733,8 +734,83 @@ class TurbineStatesFLORIDyn(TurbineStates):
         t_s.set_all_states(self.states[index1, :]*w1 + self.states[index2, :]*w2)
         return t_s
 
+class TurbineStatesMask(TurbineStates):
+    def __init__(self, number_of_time_steps: int, number_of_states: int, state_names: list):
+        """
+        TurbineStatesMask stores turbine states provided by an external computation.
+        """
+        super().__init__(number_of_time_steps, number_of_states, state_names)
 
+    def set_all_states(self, states):
+        """
+        Sets all turbine states using the appropriate set methods.
 
+        Parameters
+        ----------
+        states : array-like
+            State values in the order [cp, ct, yaw] or [ax_ind, ct, yaw], depending on implementation.
+        """
+        self.set_ax_ind(states[0])
+        self.set_yaw(states[2])
+        # If ct is settable, add a set_ct method and call it here.
+
+    def get_current_cp(self) -> float:
+        return self.states[0, 0] if self.states.ndim > 1 else self.states[0]
+
+    def get_current_ct(self) -> float:
+        return self.states[0, 1] if self.states.ndim > 1 else self.states[1]
+
+    def get_current_yaw(self) -> float:
+        return self.states[0, 2] if self.states.ndim > 1 else self.states[2]
+
+    def get_current_ax_ind(self) -> float:
+        return self.states[0, 0] if self.states.ndim > 1 else self.states[0]
+
+    def get_ct(self, index: int) -> float:
+        return self.states[index, 1] if self.states.ndim > 1 else self.states[1]
+
+    def get_ax_ind(self, index: int) -> float:
+        return self.states[index, 0] if self.states.ndim > 1 else self.states[0]
+
+    def set_ax_ind(self, ax_ind):
+        if self.states.ndim > 1:
+            self.states[0, 0] = ax_ind
+        else:
+            self.states[0] = ax_ind
+
+    def get_yaw(self, index: int) -> float:
+        return self.states[index, 2] if self.states.ndim > 1 else self.states[2]
+
+    def set_yaw(self, yaw_angle):
+        if self.states.ndim > 1:
+            self.states[0, 2] = yaw_angle
+        else:
+            self.states[2] = yaw_angle
+
+    def get_all_ct(self) -> np.ndarray:
+        if self.states.ndim > 1:
+            return self.states[:, 1]
+        else:
+            return np.array([self.states[1]])
+
+    def get_all_yaw(self) -> np.ndarray:
+        if self.states.ndim > 1:
+            return self.states[:, 2]
+        else:
+            return np.array([self.states[2]])
+
+    def get_all_ax_ind(self) -> np.ndarray:
+        if self.states.ndim > 1:
+            return self.states[:, 0]
+        else:
+            return np.array([self.states[0]])
+
+    def create_interpolated_state(self, index1: int, index2: int, w1, w2):
+        new_state = w1 * self.states[index1, :] + w2 * self.states[index2, :]
+        t_s = TurbineStatesMask(1, self.states.shape[1], ['cp', 'ct', 'yaw'])
+        t_s.states = new_state.reshape(1, -1)
+        return t_s
+ 
 # SOURCES
 # [1] The Dtu 10-Mw Reference Wind Turbine, Bak et al., 2013
 #       https://orbit.dtu.dk/en/publications/the-dtu-10-mw-reference-wind-turbine

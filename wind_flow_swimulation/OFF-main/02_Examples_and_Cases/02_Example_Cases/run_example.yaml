@@ -44,7 +44,7 @@ sim:
   sim:
     time step: 4.0
     time start: 0.0
-    time end: 1200.0
+    time end: 12.0
       
   # The logging is split in two, one for the console and one for a file. The level can be set to DEBUG, INFO, WARNING, ERROR, CRITICAL
   #   The console logging has a feature where the log messages are colored based on their origin.
@@ -75,43 +75,11 @@ wind_farm:
   farm:
     layout_x:
       - 0.0
-      - 5.0
-      - 10.0
-      - 0.0
-      - 5.0
-      - 10.0
-      - 0.0
-      - 5.0
-      - 10.0
     layout_y:
       - 0.0
-      - 0.0
-      - 0.0
-      - 5.0
-      - 5.0
-      - 5.0
-      - 10.0
-      - 10.0
-      - 10.0
     layout_z:
       - 0.0
-      - 0.0
-      - 0.0
-      - 0.0
-      - 0.0
-      - 0.0
-      - 0.0
-      - 0.0
-      - 0.0
     turbine_type:
-      - iea_10MW
-      - iea_10MW
-      - iea_10MW
-      - iea_10MW
-      - iea_10MW
-      - iea_10MW
-      - iea_10MW
-      - iea_10MW
       - iea_10MW
     unit:
       - D
