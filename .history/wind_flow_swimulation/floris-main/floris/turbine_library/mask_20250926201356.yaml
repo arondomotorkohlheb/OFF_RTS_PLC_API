@@ -1,0 +1,22 @@
+turbine_type: "mask"
+turbine_type: 'iea_15MW'
+hub_height: 150.0
+rotor_diameter: 242.24
+TSR: 8.0
+operation_model: cosine-loss
+
+generator_efficiency: 1.0
+hub_height: 119.0
+pP: 1.88
+pT: 1.88
+rotor_diameter: 198.0
+TSR: 8.0
+ref_density_cp_ct: 1.225
+ref_tilt_cp_ct: 6.0
+# turbine_type: mask
+installation: fixed
+rotor_overhang: 7.07        # in m
+shaft_tilt: 5               # in deg
+yaw_rate_lim: 0.3           # deg/s
+
+    # TODO these values are just placeholders, this needs to be linked to the API later

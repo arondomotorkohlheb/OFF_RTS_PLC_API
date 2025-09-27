@@ -1,0 +1,18 @@
+turbine_ty:
+  mask:
+    name: empty turbine model to interface OFF with incoming TurbineStates object # Source: FLORIS v3.4, adapted for OFF
+    generator_efficiency: 1.0
+    hub_height: 119.0
+    pP: 1.88
+    pT: 1.88
+    rotor_diameter: 198.0
+    TSR: 8.0
+    ref_density_cp_ct: 1.225
+    ref_tilt_cp_ct: 6.0
+    turbine_type: mask
+    installation: fixed
+    rotor_overhang: 7.07        # in m
+    shaft_tilt: 5               # in deg
+    yaw_rate_lim: 0.3           # deg/s
+
+    # TODO these values are just placeholders, this needs to be linked to the API later
