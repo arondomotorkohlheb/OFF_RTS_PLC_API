@@ -25,9 +25,9 @@ def main():
         print(f"Time: {t}, Wind Velocity at first turbine: {wind_velocity[0]}")
 
         #update state of turbines
-
+        
     pass
 
 
 if __name__ == "__main__":
-    main()
+    main()3up

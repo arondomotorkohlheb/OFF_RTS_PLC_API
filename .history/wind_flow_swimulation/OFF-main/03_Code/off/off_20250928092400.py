@@ -224,6 +224,7 @@ class OFF:
         for idx, tur in enumerate(self.wind_farm.turbines):
 
             # for turbine 'tur': Run wake solver and retrieve measurements from the wake model
+            # TODO look into what this call does, investigate if this should run on the PC or on the RTS
             uv_r[idx, :], uv_op, m_tmp = self.wake_solver.get_measurements(idx, self.wind_farm)
 
             # Calculate the power generated
