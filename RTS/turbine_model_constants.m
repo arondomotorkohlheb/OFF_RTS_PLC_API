@@ -36,9 +36,10 @@ cp_max = Simulink.Parameter(max(cp_table.Value(:))*0.99);
 c_beta_dot = Simulink.Parameter(0.5);
 c_gamma_dot = Simulink.Parameter(0.5/180*pi);
 
-Ts = Simulink.Parameter(1);
+Ts_inner = Simulink.Parameter(0.1);
+Ts_outer = Simulink.Parameter(1);
 
-P_omega_dot = Simulink.Parameter(0.01);
+P_omega_dot = Simulink.Parameter(0.5);
 omega_safety_increase = Simulink.Parameter(1.0);
 delay_on_power_lower_cap = Simulink.Parameter(int32(100/Ts.Value));
 
