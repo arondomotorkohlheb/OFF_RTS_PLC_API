@@ -1,0 +1,20 @@
+%implements s0_b0_wxqx_Update "C"
+
+%function Update(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%<SLibCGIRDumpSystemUserCode(0, "Update", "Header")>\
+%<SLibCGIRDumpSystemUserCode(0, "Update", "Body")>\
+%<SLibCGIRDumpSystemUserCode(0, "Update", "Trailer")>\
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function UpdateFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Update(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 3, fcnProtoType)>
+%endfunction

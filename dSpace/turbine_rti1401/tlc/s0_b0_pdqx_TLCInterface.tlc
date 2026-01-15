@@ -1,0 +1,602 @@
+%implements s0_b0_pdqx_TLCInterface "C"
+
+%function getInputAddr_0_0_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.Constant2"
+%endfunction
+
+%function getInput_0_0_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.Constant2"
+%endfunction
+
+%function getInputAddr_0_0_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.Constant1"
+%endfunction
+
+%function getInput_0_0_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.Constant1"
+%endfunction
+
+%function getInputAddr_0_0_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.Constant"
+%endfunction
+
+%function getInput_0_0_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.Constant"
+%endfunction
+
+%function getOutputAddr_0_0_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.dsethernetudp_tx_h"
+%endfunction
+
+%function getOutput_0_0_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.dsethernetudp_tx_h"
+%endfunction
+
+%function getDWorkAddr_0_0_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_DW.dsethernetudp_tx_IWORK"
+%endfunction
+
+%function getDWork_0_0_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_DW.dsethernetudp_tx_IWORK"
+%endfunction
+
+%function getDWorkAddr_0_0_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_DW.dsethernetudp_tx_PWORK"
+%endfunction
+
+%function getDWork_0_0_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_DW.dsethernetudp_tx_PWORK"
+%endfunction
+
+%function getParamAddr_0_0_0_0_1_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P1"
+%endfunction
+
+%function getParam_0_0_0_0_1_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P1"
+%endfunction
+
+%function getParamAddr_0_0_0_0_1_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P2"
+%endfunction
+
+%function getParam_0_0_0_0_1_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P2"
+%endfunction
+
+%function getParamAddr_0_0_0_0_1_5(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P3"
+%endfunction
+
+%function getParam_0_0_0_0_1_5(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P3"
+%endfunction
+
+%function getParamAddr_0_0_0_0_1_7(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P4"
+%endfunction
+
+%function getParam_0_0_0_0_1_7(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P4"
+%endfunction
+
+%function getParamAddr_0_0_0_0_1_9(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P5"
+%endfunction
+
+%function getParam_0_0_0_0_1_9(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P5"
+%endfunction
+
+%function getParamAddr_0_0_0_0_1_11(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P6"
+%endfunction
+
+%function getParam_0_0_0_0_1_11(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P6"
+%endfunction
+
+%function getParamAddr_0_0_0_0_1_13(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P7"
+%endfunction
+
+%function getParam_0_0_0_0_1_13(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P7"
+%endfunction
+
+%function getParamAddr_0_0_0_0_1_15(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P8"
+%endfunction
+
+%function getParam_0_0_0_0_1_15(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P8"
+%endfunction
+
+%function getParamAddr_0_0_0_0_1_17(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P9"
+%endfunction
+
+%function getParam_0_0_0_0_1_17(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P9"
+%endfunction
+
+%function getInputAddr_0_0_0_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.Constant2"
+%endfunction
+
+%function getInput_0_0_0_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.Constant2"
+%endfunction
+
+%function getInputAddr_0_0_0_1_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.Constant1"
+%endfunction
+
+%function getInput_0_0_0_1_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.Constant1"
+%endfunction
+
+%function getInputAddr_0_0_0_1_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.Constant"
+%endfunction
+
+%function getInput_0_0_0_1_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.Constant"
+%endfunction
+
+%function getOutputAddr_0_0_0_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.dsethernetudp_tx_h"
+%endfunction
+
+%function getOutput_0_0_0_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.dsethernetudp_tx_h"
+%endfunction
+
+%function getDWorkAddr_0_0_0_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_DW.dsethernetudp_tx_IWORK"
+%endfunction
+
+%function getDWork_0_0_0_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_DW.dsethernetudp_tx_IWORK"
+%endfunction
+
+%function getDWorkAddr_0_0_0_1_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_DW.dsethernetudp_tx_PWORK"
+%endfunction
+
+%function getDWork_0_0_0_1_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_DW.dsethernetudp_tx_PWORK"
+%endfunction
+
+%function getParamAddr_0_0_0_1_1_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P1"
+%endfunction
+
+%function getParam_0_0_0_1_1_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P1"
+%endfunction
+
+%function getParamAddr_0_0_0_1_1_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P2"
+%endfunction
+
+%function getParam_0_0_0_1_1_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P2"
+%endfunction
+
+%function getParamAddr_0_0_0_1_1_5(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P3"
+%endfunction
+
+%function getParam_0_0_0_1_1_5(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P3"
+%endfunction
+
+%function getParamAddr_0_0_0_1_1_7(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P4"
+%endfunction
+
+%function getParam_0_0_0_1_1_7(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P4"
+%endfunction
+
+%function getParamAddr_0_0_0_1_1_9(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P5"
+%endfunction
+
+%function getParam_0_0_0_1_1_9(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P5"
+%endfunction
+
+%function getParamAddr_0_0_0_1_1_11(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P6"
+%endfunction
+
+%function getParam_0_0_0_1_1_11(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P6"
+%endfunction
+
+%function getParamAddr_0_0_0_1_1_13(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P7"
+%endfunction
+
+%function getParam_0_0_0_1_1_13(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P7"
+%endfunction
+
+%function getParamAddr_0_0_0_1_1_15(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P8"
+%endfunction
+
+%function getParam_0_0_0_1_1_15(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P8"
+%endfunction
+
+%function getParamAddr_0_0_0_1_1_17(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P9"
+%endfunction
+
+%function getParam_0_0_0_1_1_17(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P9"
+%endfunction
+
+%function getInputAddr_0_0_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.Constant2"
+%endfunction
+
+%function getInput_0_0_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.Constant2"
+%endfunction
+
+%function getInputAddr_0_0_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.Constant1"
+%endfunction
+
+%function getInput_0_0_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.Constant1"
+%endfunction
+
+%function getInputAddr_0_0_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.Constant"
+%endfunction
+
+%function getInput_0_0_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.Constant"
+%endfunction
+
+%function getOutputAddr_0_0_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.dsethernetudp_tx_h"
+%endfunction
+
+%function getOutput_0_0_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.dsethernetudp_tx_h"
+%endfunction
+
+%function getDWorkAddr_0_0_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_DW.dsethernetudp_tx_IWORK"
+%endfunction
+
+%function getDWork_0_0_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_DW.dsethernetudp_tx_IWORK"
+%endfunction
+
+%function getDWorkAddr_0_0_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_DW.dsethernetudp_tx_PWORK"
+%endfunction
+
+%function getDWork_0_0_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_DW.dsethernetudp_tx_PWORK"
+%endfunction
+
+%function getParamAddr_0_0_0_2_1_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P1"
+%endfunction
+
+%function getParam_0_0_0_2_1_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P1"
+%endfunction
+
+%function getParamAddr_0_0_0_2_1_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P2"
+%endfunction
+
+%function getParam_0_0_0_2_1_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P2"
+%endfunction
+
+%function getParamAddr_0_0_0_2_1_5(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P3"
+%endfunction
+
+%function getParam_0_0_0_2_1_5(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P3"
+%endfunction
+
+%function getParamAddr_0_0_0_2_1_7(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P4"
+%endfunction
+
+%function getParam_0_0_0_2_1_7(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P4"
+%endfunction
+
+%function getParamAddr_0_0_0_2_1_9(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P5"
+%endfunction
+
+%function getParam_0_0_0_2_1_9(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P5"
+%endfunction
+
+%function getParamAddr_0_0_0_2_1_11(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P6"
+%endfunction
+
+%function getParam_0_0_0_2_1_11(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P6"
+%endfunction
+
+%function getParamAddr_0_0_0_2_1_13(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P7"
+%endfunction
+
+%function getParam_0_0_0_2_1_13(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P7"
+%endfunction
+
+%function getParamAddr_0_0_0_2_1_15(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P8"
+%endfunction
+
+%function getParam_0_0_0_2_1_15(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P8"
+%endfunction
+
+%function getParamAddr_0_0_0_2_1_17(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P9"
+%endfunction
+
+%function getParam_0_0_0_2_1_17(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P9"
+%endfunction
+
+%function getInputAddr_0_0_0_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.Constant2"
+%endfunction
+
+%function getInput_0_0_0_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.Constant2"
+%endfunction
+
+%function getInputAddr_0_0_0_3_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.Constant1"
+%endfunction
+
+%function getInput_0_0_0_3_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.Constant1"
+%endfunction
+
+%function getInputAddr_0_0_0_3_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.Constant"
+%endfunction
+
+%function getInput_0_0_0_3_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.Constant"
+%endfunction
+
+%function getOutputAddr_0_0_0_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_B.dsethernetudp_tx_h"
+%endfunction
+
+%function getOutput_0_0_0_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_B.dsethernetudp_tx_h"
+%endfunction
+
+%function getDWorkAddr_0_0_0_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_DW.dsethernetudp_tx_IWORK"
+%endfunction
+
+%function getDWork_0_0_0_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_DW.dsethernetudp_tx_IWORK"
+%endfunction
+
+%function getDWorkAddr_0_0_0_3_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_DW.dsethernetudp_tx_PWORK"
+%endfunction
+
+%function getDWork_0_0_0_3_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_DW.dsethernetudp_tx_PWORK"
+%endfunction
+
+%function getParamAddr_0_0_0_3_1_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P1"
+%endfunction
+
+%function getParam_0_0_0_3_1_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P1"
+%endfunction
+
+%function getParamAddr_0_0_0_3_1_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P2"
+%endfunction
+
+%function getParam_0_0_0_3_1_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P2"
+%endfunction
+
+%function getParamAddr_0_0_0_3_1_5(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P3"
+%endfunction
+
+%function getParam_0_0_0_3_1_5(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P3"
+%endfunction
+
+%function getParamAddr_0_0_0_3_1_7(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P4"
+%endfunction
+
+%function getParam_0_0_0_3_1_7(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P4"
+%endfunction
+
+%function getParamAddr_0_0_0_3_1_9(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P5"
+%endfunction
+
+%function getParam_0_0_0_3_1_9(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P5"
+%endfunction
+
+%function getParamAddr_0_0_0_3_1_11(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P6"
+%endfunction
+
+%function getParam_0_0_0_3_1_11(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P6"
+%endfunction
+
+%function getParamAddr_0_0_0_3_1_13(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P7"
+%endfunction
+
+%function getParam_0_0_0_3_1_13(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P7"
+%endfunction
+
+%function getParamAddr_0_0_0_3_1_15(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P8"
+%endfunction
+
+%function getParam_0_0_0_3_1_15(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P8"
+%endfunction
+
+%function getParamAddr_0_0_0_3_1_17(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&turbine_P.dsethernetudp_tx_P9"
+%endfunction
+
+%function getParam_0_0_0_3_1_17(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "turbine_P.dsethernetudp_tx_P9"
+%endfunction
+

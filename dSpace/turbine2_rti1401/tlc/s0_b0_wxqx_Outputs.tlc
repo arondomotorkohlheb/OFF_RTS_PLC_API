@@ -1,0 +1,29 @@
+%implements s0_b0_wxqx_Outputs "C"
+
+%function Outputs(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcOutputsFcnOfS0B1 = OpaqueTLCBlockFcn("Outputs", 0, 1, 0, 2)
+%<SLibCGIRDumpSystemUserCode(0, "Output", "Header")>\
+%<SLibCGIRDumpSystemUserCode(0, "Output", "Body")>\
+%if !WHITE_SPACE(tlcOutputsFcnOfS0B1)
+/* S-Function (rti_commonblock): '<S1>/S-Function1' incorporates:
+ *  Constant: '<Root>/Constant'
+ */
+%<tlcOutputsFcnOfS0B1>\
+%endif
+%<SLibCGIRDumpSystemUserCode(0, "Output", "Trailer")>\
+%<SLibInsertSolverResetCode()>\
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedOutputLocalVars", localVarDecl)>
+%endfunction
+%function OutputsFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Outputs(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 2, fcnProtoType)>
+%endfunction

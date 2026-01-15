@@ -1,0 +1,30 @@
+%implements s0_b0_pdqx_Outputs "C"
+
+%function Outputs(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcOutputsFcnOfS0B0 = OpaqueTLCBlockFcn("Outputs", 0, 0, 0, 2)
+/* Constant: '<Root>/Constant2' */
+turbine_B.Constant2 = turbine_P.Constant2_Value;
+/* Constant: '<Root>/Constant1' */
+turbine_B.Constant1 = turbine_P.Constant1_Value;
+/* Constant: '<Root>/Constant' */
+turbine_B.Constant = turbine_P.Constant_Value;
+%if !WHITE_SPACE(tlcOutputsFcnOfS0B0)
+/* S-Function (dsethernetudp_tx): '<S1>/dsethernetudp_tx' */
+%<tlcOutputsFcnOfS0B0>\
+%endif
+%<SLibInsertSolverResetCode()>\
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedOutputLocalVars", localVarDecl)>
+%endfunction
+%function OutputsFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Outputs(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 2, fcnProtoType)>
+%endfunction

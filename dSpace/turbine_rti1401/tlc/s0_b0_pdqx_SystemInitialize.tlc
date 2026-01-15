@@ -1,0 +1,26 @@
+%implements s0_b0_pdqx_SystemInitialize "C"
+
+%function SystemInitialize(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcInitializeConditionsFcnOfS0B0 = OpaqueTLCBlockFcn("InitializeConditions", 0, 0, 0, 1)
+%<SLibInsertAsyncTaskInitializeCode(system)>
+%<SLibWriteMachineInitialize()>
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS0B0)
+/* InitializeConditions for S-Function (dsethernetudp_tx): '<S1>/dsethernetudp_tx' */
+%<tlcInitializeConditionsFcnOfS0B0>\
+%endif
+%<SLibInsertInitPeriodicCStatesFcn(system)>
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedSystemInitializeLocalVars", localVarDecl)>
+%endfunction
+%function SystemInitializeFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void SystemInitialize(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 1, fcnProtoType)>
+%endfunction
