@@ -29,9 +29,10 @@ sim:
   description:  tbfilled later
 
   sim:
-    time step: 5
-    time start: 5
-    time end: 1000
+    time step: 1.0
+    time start: 0
+    time end: 1001.0
+
 
   logging:
     console: 
@@ -108,26 +109,26 @@ wind_farm:
 # Ambient conditions used during the simulation
 #  Currently the code only supports time variations of the wind speed and direction. If a single value is given, it is assumed to be constant.
 #  There is also only one ambient corrector as of now.
-ambient:
-  name: ambient_conditions
-  description: Constant wind speed at 8m/s coming from 270 deg (0 deg = north)
+# ambient:
+#   name: ambient_conditions
+#   description: Constant wind speed at 8m/s coming from 270 deg (0 deg = north)
 
-  flow_field: # This struct is passed on to the AmbientCorrector to feed in the new flow properties
-    air_density: 1.225
-    reference_wind_height: -1 # Needs to be defined as FLORIS expects different turbine types (-1 might still work)
-    turbulence_intensities:
-      - 0.01
-    wind_directions: # a single value indicates constant conditions, multiple lead to linear interpolation
-      - 57.2958
-    wind_directions_t:
-      - 0.0
-    wind_shear: 0.12
-    wind_speeds: # a single value indicates constant conditions, multiple lead to linear interpolation
-      - 11.0
-    wind_speeds_t:
-      - 0.0
-    wind_veer: 0.0
-    corr_overwrite_direction: true # All states are overwritten instead of only the first particle state
+#   flow_field: # This struct is passed on to the AmbientCorrector to feed in the new flow properties
+#     air_density: 1.225
+#     reference_wind_height: -1 # Needs to be defined as FLORIS expects different turbine types (-1 might still work)
+#     turbulence_intensities:
+#       - 0.01
+#     wind_directions: # a single value indicates constant conditions, multiple lead to linear interpolation
+#       - 57.2958
+#     wind_directions_t:
+#       - 0.0
+#     wind_shear: 0.12
+#     wind_speeds: # a single value indicates constant conditions, multiple lead to linear interpolation
+#       - 11.0
+#     wind_speeds_t:
+#       - 0.0
+#     wind_veer: 0.0
+#     corr_overwrite_direction: true # All states are overwritten instead of only the first particle state
 
 # Wake solver settings
 #  Here we select the Temporary Wind Farm (TWF) solver and the FLORIS wake model
@@ -260,8 +261,8 @@ ambient:
     wind_veer: 0.0
     corr_overwrite_direction: true # All states are overwritten instead of only the first particle state
     turbulence_intensities:
-      - 0.01
+      - 0.06
     wind_directions: # a single value indicates constant conditions, multiple lead to linear interpolation
-      - -60
+      - 20
     wind_directions_t:
       - 0.0
