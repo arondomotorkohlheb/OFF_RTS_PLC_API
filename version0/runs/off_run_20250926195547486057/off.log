@@ -1,0 +1,5 @@
+[0;20mINFO : off.py, line 186 in __logger_init__ : Saving data to C:\Users\kohlh\OneDrive - Delft University of Technology\Desktop\Study\MSc\research assignment\git\OFF_RTS_PLC_API\runs\\off_run_20250926195547486057.[0m
+[35;20mINFO : wake_solver.py, line 59 in __init__ : Wake solver settings:[0m
+[35;20mINFO : wake_solver.py, line 60 in __init__ : {'wake_solver': 'TWFSolver', 'wake_model': 'FLORIS GCH', 'op_propagation': 'frozen turbulence', 'extrapolation': 'pair', 'n_op': 200}[0m
+[35;20mINFO : wake_solver.py, line 239 in __init__ : FLORIDyn TWF solver created.[0m
+[34;20mINFO : wake_model.py, line 444 in __init__ : Interface for the  model initialized[0m
