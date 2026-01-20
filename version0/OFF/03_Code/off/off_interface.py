@@ -104,7 +104,7 @@ class OFFInterface:
             np.array([sim_info["ambient"]["flow_field"]["wind_speeds"][0],
                       sim_info["ambient"]["flow_field"]["wind_directions"][0],
                       sim_info["ambient"]["flow_field"]["turbulence_intensities"][0]]),
-            np.array([0, 0, 0]))
+            np.array([0.11, 0])) # init states with ct = 0.11 and rel yaw = 0
 
         self.ready_to_run = True
 
