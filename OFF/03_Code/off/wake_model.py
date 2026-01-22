@@ -467,8 +467,6 @@ class Floris4Wake(WakeModel):
         n_t = len(self.turbine_states)
         yaw_ang = np.zeros([1,n_t])
 
-        # print(self.turbine_states[0])
-        # exit()
         for ii_t in np.arange(n_t):
             yaw_ang[0, ii_t] = self.turbine_states[ii_t].get_current_yaw()
 
@@ -488,14 +486,17 @@ class Floris4Wake(WakeModel):
             turbulence_intensities=turbulenceintensities,
         )
         
+        thrust_coefficients = np.array([turbine_state.get_ct() for turbine_state in self.turbine_states]).reshape((len(self.turbine_states),1))
+        
         # Set the wind farm conditions
+        
         self.fmodel.set(
             layout_x=wind_farm_layout[:, 0],
             layout_y=wind_farm_layout[:, 1],
             wind_data=time_series,
             yaw_angles=yaw_ang,
+            thrust_coefficients = thrust_coefficients
         )
-        
 
     def get_measurements_i_t(self, i_t: int) -> tuple:
         """

@@ -205,7 +205,7 @@ class TurbineStatesMask(TurbineStates):
 
     def __init__(self, number_of_time_steps: int):
         """
-        TurbineStatesFLORIDyn includes the axial induction factor, the yaw misalignment and the added turbulence
+        it mimics the TurbineStatesFLORIDyn includes the axial induction factor, the yaw misalignment and the added turbulence
         intensity.
 
         Parameters
@@ -213,10 +213,14 @@ class TurbineStatesMask(TurbineStates):
         number_of_time_steps : int
             number of time steps the states should go back / chain length
         """
-        super().__init__(number_of_time_steps, 3, ['axial induction (-), yaw (deg), added turbulence intensity (%)'])
-        self.cp = 0.0
-        self.ct = 0.0
+        super().__init__(number_of_time_steps, 2, ['ct (-), yaw (deg)'])
+        # giving a non-zero initial value to ct so that floris doesn't breake
+        self.states[:, 0] = np.ones(number_of_time_steps) * 0.2
+        # self.set_ax_ind((1 - np.sqrt(1 - self.ct)) / 2)
+
     def get_current_ax_ind(self) -> float:
+        print('get current ax ind called from turbinestates mask')
+        raise NotImplementedError
         """
         get_all_axInd returns the all axial induction factors of the saved turbine states
 
@@ -254,7 +258,7 @@ class TurbineStatesMask(TurbineStates):
         else:
             self.states[1] = yaw_angle
 
-    def get_ct(self) -> float:
+    def get_ct(self, index: int = None) -> float:
         """
         get_ct(index) returns the Ct coefficient at a requested index of the turbine state chain
 
@@ -267,7 +271,10 @@ class TurbineStatesMask(TurbineStates):
         float:
             Thrust coefficient
         """
-        return self.ct
+        if self.n_time_steps > 1:
+            return self.states[index, 0]
+        else:
+            return self.states[0]
     
     def get_cp(self) -> float:
         """
@@ -278,7 +285,9 @@ class TurbineStatesMask(TurbineStates):
         float:
             Power coefficient
         """
-        return self.cp
+        print('get cp called from turbine states mask')
+        raise NotImplementedError
+        return None
 
     def get_ax_ind(self, index: int) -> np.ndarray:
         """
@@ -289,10 +298,10 @@ class TurbineStatesMask(TurbineStates):
         np.ndarray:
             Axial induction factor (-)
         """
-        if self.n_time_steps > 1:
-            return self.states[index, 0]
-        else:
-            return self.states[0]
+        print('get current ax ind called from turbinestates mask')
+        raise NotImplementedError
+        return None
+        # write function here that computed ax induction from ct if needed
 
     def set_ax_ind(self, ax_ind):
         """
@@ -302,10 +311,9 @@ class TurbineStatesMask(TurbineStates):
         ----------
         ax_ind: axial induction factor
         """
-        if self.n_time_steps > 1:
-            self.states[0, 0] = ax_ind
-        else:
-            self.states[0] = ax_ind
+        print('set ax ind called from turbinestates mask')
+        raise NotImplementedError
+        return None
 
     def get_yaw(self, index: int) -> float:
         """
@@ -335,7 +343,7 @@ class TurbineStatesMask(TurbineStates):
             Thrust coefficient at all turbine states (-)
         """
         # TODO vectorized calculation of Ct
-        pass
+        return self.states[:, 0]
 
     def get_all_ax_ind(self) -> np.ndarray:
         """
@@ -380,7 +388,7 @@ class TurbineStatesMask(TurbineStates):
         TurbineStates
             turbine state object with single entry
         """
-        t_s = TurbineStatesFLORIDyn(1)
+        t_s = TurbineStatesMask(1)
         t_s.set_all_states(self.states[index1, :]*w1 + self.states[index2, :]*w2)
         return t_s
 
@@ -393,7 +401,7 @@ class TurbineStatesMask(TurbineStates):
         cp : float
             Power coefficient (-)
         """
-        self.cp = cp
+        raise NotImplementedError
         
     def set_ct(self, ct: float) -> None:
         """
@@ -404,9 +412,15 @@ class TurbineStatesMask(TurbineStates):
         ct : float
             Thrust coefficient (-)
         """
-        self.ct = ct
+        if self.n_time_steps > 1:
+            self.states[0, 0] = ct
+        else:
+            self.states[0] = ct
 
     def get_current_ti(self) -> float:
+        print("get current TI called")
+        raise NotImplementedError
+        return None
         """
         get_current_ti returns the current added turbulence intensity at the turbine location
 
@@ -415,16 +429,10 @@ class TurbineStatesMask(TurbineStates):
         float:
             added turbulence intensity at the turbine location (%)
         """
-        if self.n_time_steps > 1:
-            return self.states[0, 2]
-        else:
-            return self.states[2]
 
-    def update_states(self, ct : float, cp :float, yaw : float) -> None:
-        self.set_cp(cp)
+    def update_states(self, ct : float, yaw : float) -> None:
         self.set_ct(ct)
         self.set_yaw(yaw)
-        self.set_ax_ind((1 - np.sqrt(1 - ct)) / 2)
 
 class Turbine(ABC):
     # Attributes

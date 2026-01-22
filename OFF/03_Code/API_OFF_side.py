@@ -33,18 +33,18 @@ def main():
     lg.info("Sockets created and bound to ports : %d (Simulink->Python) and %d (Python->Simulink)", simulink2python_port, python2simulink_port)
     
     # get layout of wind farm from windfarm_information.yaml
-    file_name = f'{off.OFF_PATH}\\02_Examples_and_Cases\\03_Cases\\windfarm_information_2x5_nonconstant.yaml'
+    file_name = f'{off.OFF_PATH}\\02_Examples_and_Cases\\03_Cases\\windfarm_information_2x5.yaml'
 
     off_interface = offi.OFFInterface()
     off_interface.init_simulation_by_path(file_name)
     iteration = 0
 
     # intializing signals so that simulink and off can run simultaneously
-    simulink_input_init_perturbine = np.array([11, 0.06, -2.5]) # wind speed, TI, wind direction (rad)
+    simulink_input_init_perturbine = np.array([11, 0.06, 1]) # wind speed, TI, wind direction (rad)
     simulink_input = np.array([simulink_input_init_perturbine for _ in off_interface.off_sim.wind_farm.turbines])
     lg.info("initial simulink_input: %s", simulink_input)
 
-    off_input_init_per_turbine = np.array([0, 0, 0]) # initial yaw, cp, ct
+    off_input_init_per_turbine = np.array([0.1, 0]) # ct, yaw
     off_input = np.array([off_input_init_per_turbine for _ in off_interface.off_sim.wind_farm.turbines])
     lg.info("initial off_input: %s", off_input)
 
@@ -54,7 +54,8 @@ def main():
     ## updating turbine states so that both simulink and off can run at the same time
     # since all the initial states are the same this can be done this way but only for the initial step
     for turbine in off_interface.off_sim.wind_farm.turbines:
-        turbine.turbine_states.update_states(ct=off_input_init_per_turbine[2], cp=off_input_init_per_turbine[1], yaw=off_input_init_per_turbine[0])
+        turbine.turbine_states.update_states(ct=off_input_init_per_turbine[0], yaw=off_input_init_per_turbine[1])
+
 
     for t in np.arange(off_interface.off_sim.settings_sim['time start'],
                            off_interface.off_sim.settings_sim['time end'],
@@ -115,7 +116,7 @@ def main():
         
         # update turbine states
         for turbine_index, turbine in enumerate(off_interface.off_sim.wind_farm.turbines):
-            turbine.turbine_states.update_states(ct=off_input[turbine_index, 2], cp=off_input[turbine_index, 1], yaw=off_input[turbine_index, 0])
+            turbine.turbine_states.update_states(ct=off_input[turbine_index, 2], yaw=off_input[turbine_index, 0])
         iteration += 1
 
     py2sim_socket.close()

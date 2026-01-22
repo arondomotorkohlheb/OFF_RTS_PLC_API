@@ -23,15 +23,14 @@
 
 # You should have received a copy of the GNU Affero General Public License
 # along with this program (see COPYING file).  If not, see <https://www.gnu.org/licenses/>.
-
 sim:
   name: testing braking up script
   description:  tbfilled later
 
   sim:
-    time step: 5
-    time start: 5
-    time end: 1000
+    time step: 1
+    time start: 0
+    time end: 201
 
   logging:
     console: 
@@ -262,6 +261,6 @@ ambient:
     turbulence_intensities:
       - 0.01
     wind_directions: # a single value indicates constant conditions, multiple lead to linear interpolation
-      - -60
+      - 57.2958
     wind_directions_t:
       - 0.0
