@@ -28,9 +28,9 @@ sim:
   description:  tbfilled later
 
   sim:
-    time step: 1
+    time step: 5
     time start: 0
-    time end: 201
+    time end: 2005
 
   logging:
     console: 
@@ -261,6 +261,6 @@ ambient:
     turbulence_intensities:
       - 0.01
     wind_directions: # a single value indicates constant conditions, multiple lead to linear interpolation
-      - 57.2958
+      - -160
     wind_directions_t:
       - 0.0

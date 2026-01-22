@@ -38,7 +38,7 @@ c_gamma_dot = Simulink.Parameter(1/180*pi);
 
 Ts_inner = Simulink.Parameter(1);
 Ts_outer = Simulink.Parameter(5);
-Ts = Simulink.Parameter(0.1);
+% Ts = Simulink.Parameter(0.1);
 
 P_omega_dot = Simulink.Parameter(0.5);
 P_omega_dot_negative = Simulink.Parameter(0.05);
