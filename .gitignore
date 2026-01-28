@@ -40,3 +40,5 @@ codegen/
 *.sbproj.bak
 
 **/.history/**
+OFF/02_Examples_and_Cases/03_Cases/windfarm_information_2x5_nonconstant.yaml
+OFF/02_Examples_and_Cases/03_Cases/windfarm_information_2x5.yaml

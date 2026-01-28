@@ -263,6 +263,8 @@ ambient:
     turbulence_intensities:
       - 0.06
     wind_directions: # a single value indicates constant conditions, multiple lead to linear interpolation
-      - 20
+      - -180
+      - 180
     wind_directions_t:
       - 0.0
+      - 1000

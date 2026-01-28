@@ -15,7 +15,6 @@ import matplotlib.pyplot as plt
 
 
 def main():
-
     # setting up server with one port to one port communication 
     IP_address = "127.0.0.1" # localhost
     python2simulink_port = 49160
@@ -33,18 +32,18 @@ def main():
     lg.info("Sockets created and bound to ports : %d (Simulink->Python) and %d (Python->Simulink)", simulink2python_port, python2simulink_port)
     
     # get layout of wind farm from windfarm_information.yaml
-    file_name = f'{off.OFF_PATH}\\02_Examples_and_Cases\\03_Cases\\windfarm_information_2x5.yaml'
+    file_name = f'{off.OFF_PATH}\\02_Examples_and_Cases\\03_Cases\\windfarm_information_2x5_nonconstant.yaml'
 
     off_interface = offi.OFFInterface()
     off_interface.init_simulation_by_path(file_name)
     iteration = 0
 
     # intializing signals so that simulink and off can run simultaneously
-    simulink_input_init_perturbine = np.array([11, 0.06, 1]) # wind speed, TI, wind direction (rad)
+    simulink_input_init_perturbine = np.array([11, 0.06, -2]) # wind speed, TI, wind direction (rad)
     simulink_input = np.array([simulink_input_init_perturbine for _ in off_interface.off_sim.wind_farm.turbines])
     lg.info("initial simulink_input: %s", simulink_input)
 
-    off_input_init_per_turbine = np.array([0.1, 0]) # ct, yaw
+    off_input_init_per_turbine = np.array([0.2, -2]) # ct, yaw
     off_input = np.array([off_input_init_per_turbine for _ in off_interface.off_sim.wind_farm.turbines])
     lg.info("initial off_input: %s", off_input)
 

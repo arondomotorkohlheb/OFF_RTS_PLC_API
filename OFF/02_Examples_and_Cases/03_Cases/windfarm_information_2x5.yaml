@@ -115,7 +115,7 @@ ambient:
     air_density: 1.225
     reference_wind_height: -1 # Needs to be defined as FLORIS expects different turbine types (-1 might still work)
     turbulence_intensities:
-      - 0.01
+      - 0.06
     wind_directions: # a single value indicates constant conditions, multiple lead to linear interpolation
       - 57.2958
     wind_directions_t:
@@ -259,7 +259,7 @@ ambient:
     wind_veer: 0.0
     corr_overwrite_direction: true # All states are overwritten instead of only the first particle state
     turbulence_intensities:
-      - 0.01
+      - 0.06
     wind_directions: # a single value indicates constant conditions, multiple lead to linear interpolation
       - 57.2958
     wind_directions_t:

@@ -33,12 +33,12 @@ lambda_max = lambda_vector.Value(lambda_max_index);
 beta_max = beta_vector.Value(beta_max_index);
 cp_max = Simulink.Parameter(max(cp_table.Value(:))*0.99);
 
-c_beta_dot = Simulink.Parameter(0.1);
+c_beta_dot = Simulink.Parameter(1);
 c_gamma_dot = Simulink.Parameter(1/180*pi);
 
-Ts_inner = Simulink.Parameter(1);
-Ts_outer = Simulink.Parameter(5);
-% Ts = Simulink.Parameter(0.1);
+Ts_inner = Simulink.Parameter(0.1);
+Ts_outer = Simulink.Parameter(1);
+Ts = Simulink.Parameter(1);
 
 P_omega_dot = Simulink.Parameter(0.5);
 P_omega_dot_negative = Simulink.Parameter(0.05);
@@ -60,4 +60,4 @@ cp_opt_keys = Simulink.Parameter(cell2mat(cp_vector));
 lambda_opt_vector = Simulink.Parameter(lambda_array);
 beta_opt_vector = Simulink.Parameter(beta_array);
 
-x0 = Simulink.Parameter([0,0,0]); % initial states: beta gamma omega for each turbine
+x0 = Simulink.Parameter([0,200/180*pi,0]); % initial states: beta gamma omega for each turbine
