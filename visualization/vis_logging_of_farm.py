@@ -40,7 +40,7 @@ for k in range(data.shape[1]):
     line, = axs[1].plot(t, data[:, k, IDX_OMEGA])       # achieved (solid)
     axs[1].plot(
         t,
-        data[:, k, IDX_OMEGA_REF],
+        np.abs(data[:, k, IDX_OMEGA_REF]),
         linestyle='--',
         color=line.get_color()                          # same color
     )
@@ -55,7 +55,7 @@ P_gen_sum = data[:, :, IDX_P_GEN].sum(axis=1)
 line, = axs[2].plot(t, P_gen_sum, label=r'$\sum P_{gen}$')   # achieved (solid)
 axs[2].plot(
     t,
-    P_ref_sum,
+    2*10**8*0.9*np.ones_like(t),
     linestyle='--',
     color=line.get_color(),                                 # same color
     label=r'$\sum P_{ref}$'
