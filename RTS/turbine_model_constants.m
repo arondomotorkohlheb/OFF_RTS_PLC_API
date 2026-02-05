@@ -37,7 +37,7 @@ c_beta_dot = Simulink.Parameter(1);
 c_gamma_dot = Simulink.Parameter(1/180*pi);
 
 Ts_inner = Simulink.Parameter(0.1);
-Ts_outer = Simulink.Parameter(1);
+Ts_outer = Simulink.Parameter(2);
 Ts = Simulink.Parameter(1);
 
 P_omega_dot = Simulink.Parameter(0.5);
@@ -61,3 +61,4 @@ lambda_opt_vector = Simulink.Parameter(lambda_array);
 beta_opt_vector = Simulink.Parameter(beta_array);
 
 x0 = Simulink.Parameter([0,200/180*pi,0]); % initial states: beta gamma omega for each turbine
+display(A.Value)
