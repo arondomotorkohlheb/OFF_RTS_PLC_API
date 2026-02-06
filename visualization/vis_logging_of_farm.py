@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-file_path = r'C:\Users\akohlheb\working_files\visualization\visual_data.npy'
+file_path = r'visual_data_speedgoat.npy'
 
 data = np.load(file_path)
 data = data[:, :, :]
@@ -55,7 +55,7 @@ P_gen_sum = data[:, :, IDX_P_GEN].sum(axis=1)
 line, = axs[2].plot(t, P_gen_sum, label=r'$\sum P_{gen}$')   # achieved (solid)
 axs[2].plot(
     t,
-    2*10**8*0.9*np.ones_like(t),
+    P_ref_sum,  # reference (dashed) 1.6*10^8
     linestyle='--',
     color=line.get_color(),                                 # same color
     label=r'$\sum P_{ref}$'

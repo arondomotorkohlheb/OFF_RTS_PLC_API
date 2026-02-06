@@ -61,4 +61,3 @@ lambda_opt_vector = Simulink.Parameter(lambda_array);
 beta_opt_vector = Simulink.Parameter(beta_array);
 
 x0 = Simulink.Parameter([0,200/180*pi,0]); % initial states: beta gamma omega for each turbine
-display(A.Value)
